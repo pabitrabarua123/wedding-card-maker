@@ -152,7 +152,7 @@ export default function Home() {
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-[#8B4513] mb-6 leading-tight">
                 Your Love Story,
                 <span className="block mt-2 bg-gradient-to-r from-[#D4AF37] to-[#FFB6C1] bg-clip-text text-transparent">
-                  Beautifully Designed
+                  Beautifully Designed 1
                 </span>
               </h1>
 
