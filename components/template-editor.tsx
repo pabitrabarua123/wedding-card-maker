@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card } from "@/components/ui/card"
 import { Download, Share2 } from "lucide-react"
+import { ArrowLeft } from 'lucide-react';
 import { templates } from "./wedding-templates"
 import { PublishDialog } from "./publish-dialog"
 import domtoimage from "dom-to-image"
@@ -126,12 +127,12 @@ export function TemplateEditor({ templateId, onBack }: TemplateEditorProps) {
       {/* Sidebar with form fields */}
       <div className="w-96 border-r border-border bg-card overflow-y-auto">
         <div className="p-6 border-b border-border">
-          <Button variant="ghost" size="sm" onClick={onBack} className="mb-4">
+          <Button size="sm" variant="outline" onClick={onBack} className="mb-4">
             {/* ArrowLeft icon removed as per updates */}
-            Change Template
+             <ArrowLeft/> Change Template
           </Button>
-          <h2 className="text-2xl font-serif font-semibold text-foreground">{template.name}</h2>
-          <p className="text-sm text-muted-foreground mt-1">{template.description}</p>
+          <h2 className="text-2xl font-semibold text-foreground">{template.name}</h2>
+          <p className={`text-sm text-muted-foreground mt-1`}>{template.description}Pabitra</p>
         </div>
 
         <div className="p-6 space-y-6">
@@ -152,7 +153,7 @@ export function TemplateEditor({ templateId, onBack }: TemplateEditorProps) {
 
       {/* Main canvas area */}
       <div className="flex-1 flex flex-col">
-        <div className="h-16 border-b border-border bg-card flex items-center justify-end px-6 gap-2">
+        <div className="h-16 py-4 border-b border-border bg-card flex items-center justify-end px-6 gap-2">
           <Button variant="outline" size="sm" onClick={handleExport} disabled={isExporting}>
             <Download className="w-4 h-4 mr-2" />
             {isExporting ? "Exporting..." : "Download"}

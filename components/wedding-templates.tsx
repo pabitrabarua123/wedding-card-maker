@@ -23,9 +23,9 @@ export type TemplateField = {
 export type Template = {
   id: string
   name: string
-  description: string
+  description?: string
   thumbnail: string
-  backgroundImage: string // Added background image for editing
+  backgroundImage?: string // Added background image for editing
   isPremium?: boolean
   category?: "Hindu" | "Muslim" | "Christian" | "General" // Added category field
   fields: TemplateField[]
@@ -2347,8 +2347,8 @@ export const templates: Template[] = [
         id: "title",
         type: "text",
         label: "Event Title",
-        placeholder: "Mehndi Celebration",
-        defaultValue: "Mehndi Celebration",
+        placeholder: "Mehndi",
+        defaultValue: "Mehndi",
         position: { x: 300, y: 180 },
         fontSize: 52,
         fontFamily: "serif",
@@ -2450,11 +2450,11 @@ export const templates: Template[] = [
 
         <div className="absolute inset-0 flex flex-col items-center px-12">
           {/* Event title */}
-          <div className="text-center mt-28">
-            <h1 className="text-5xl font-serif italic" style={{ color: "#f4c542" }}>
+          <div className="text-center mt-38">
+            <h1 className="text-5xl font-dancing" style={{ color: "#f4c542" }}>
               {data["title"] || "Mehndi"}
             </h1>
-            <h2 className="text-5xl font-serif italic mt-1" style={{ color: "#f0e8d5" }}>
+            <h2 className="text-5xl font-dancing mt-1" style={{ color: "#f0e8d5" }}>
               Celebration
             </h2>
           </div>
