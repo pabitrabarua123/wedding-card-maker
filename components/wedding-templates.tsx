@@ -23,7 +23,7 @@ export type TemplateField = {
 export type Template = {
   id: string
   name: string
-  description?: string
+  description: string
   thumbnail: string
   backgroundImage?: string // Added background image for editing
   isPremium?: boolean
@@ -607,7 +607,7 @@ export const templates: Template[] = [
       </div>
     ),
   },
-  
+
   // NEW PREMIUM TEMPLATES INSPIRED BY USER IMAGES
   {
     id: "barakah-gold",
@@ -1308,6 +1308,7 @@ export const templates: Template[] = [
     isPremium: true,
     thumbnail: "/images/premium4.jpg",
     backgroundImage: "/images/premium4-for-real-use.png",
+    description: "Vibrant mehndi invitation with floral accents and pink highlights",
     category: "Hindu",
     fields: [
       {
@@ -1705,6 +1706,7 @@ export const templates: Template[] = [
     isPremium: true,
     thumbnail: "/images/premium6.jpg",
     backgroundImage: "/images/premium6-for-real-use.png",
+    description: "Sophisticated wedding invitation with floral accents and classic typography",
     category: "Christian",
     fields: [
       {
@@ -1906,6 +1908,7 @@ export const templates: Template[] = [
     isPremium: true,
     thumbnail: "/images/premium7.jpg",
     backgroundImage: "/images/premium7-for-real-use.png",
+    description: "Traditional Hindu wedding invitation with floral motifs and rich colors",
     category: "Hindu",
     fields: [
       {
@@ -2084,6 +2087,7 @@ export const templates: Template[] = [
     isPremium: true,
     thumbnail: "/images/premium8.jpg",
     backgroundImage: "/images/premium8-for-real-use.png",
+    description: "Elegant Hindu wedding invitation with gold accents and traditional design elements",
     category: "Hindu",
     fields: [
       {
