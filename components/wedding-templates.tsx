@@ -35,387 +35,11 @@ export type Template = {
 export const templates: Template[] = [
   // FREE TEMPLATES
   {
-    id: "classic-elegant",
-    name: "Classic Elegant",
-    description: "Timeless design with gold accents",
-    thumbnail: "/elegant-wedding-invitation-with-gold-frame.jpg",
-    backgroundImage: "/elegant-wedding-invitation-with-gold-frame.jpg", // Using same for now
-    category: "Christian",
-    fields: [
-      {
-        id: "bride-name",
-        type: "text",
-        label: "Bride's Name",
-        placeholder: "Sarah",
-        defaultValue: "Sarah",
-        position: { x: 300, y: 250 },
-        fontSize: 38,
-        fontFamily: "serif",
-        color: "#1a1a1a",
-        align: "center",
-      },
-      {
-        id: "groom-name",
-        type: "text",
-        label: "Groom's Name",
-        placeholder: "John",
-        defaultValue: "John",
-        position: { x: 300, y: 305 },
-        fontSize: 38,
-        fontFamily: "serif",
-        color: "#1a1a1a",
-        align: "center",
-      },
-      {
-        id: "date",
-        type: "text",
-        label: "Wedding Date",
-        placeholder: "June 15, 2024",
-        defaultValue: "June 15, 2024",
-        position: { x: 300, y: 600 },
-        fontSize: 20,
-        fontFamily: "sans",
-        color: "#2a2a2a",
-        align: "center",
-      },
-      {
-        id: "venue",
-        type: "text",
-        label: "Venue",
-        placeholder: "The Grand Ballroom",
-        defaultValue: "The Grand Ballroom",
-        position: { x: 300, y: 635 },
-        fontSize: 16,
-        fontFamily: "sans",
-        color: "#4a4a4a",
-        align: "center",
-      },
-      {
-        id: "time",
-        type: "text",
-        label: "Time",
-        placeholder: "4:00 PM",
-        defaultValue: "4:00 PM",
-        position: { x: 300, y: 665 },
-        fontSize: 16,
-        fontFamily: "sans",
-        color: "#4a4a4a",
-        align: "center",
-      },
-    ],
-    renderTemplate: (data) => (
-      <div className="relative w-full h-full overflow-hidden">
-        <img
-          src="/elegant-wedding-invitation-with-gold-frame.jpg"
-          alt="Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 flex flex-col items-center justify-center py-16 px-12">
-          <div className="text-center space-y-4">
-            <p className="text-sm tracking-wider text-gray-700 uppercase font-sans">You are invited to</p>
-            <p className="text-sm tracking-widest text-gray-600 uppercase font-sans">The Wedding of</p>
-            <h1 className="text-5xl font-serif" style={{ color: "#1a1a1a" }}>
-              {data["bride-name"] || "Sarah"}
-            </h1>
-            <p className="text-3xl font-serif" style={{ color: "#4a4a4a" }}>
-              &
-            </p>
-            <h1 className="text-5xl font-serif" style={{ color: "#1a1a1a" }}>
-              {data["groom-name"] || "John"}
-            </h1>
-            <div className="mt-12 space-y-2">
-              <p className="text-xl font-semibold font-sans" style={{ color: "#2a2a2a" }}>
-                {data["date"] || "June 15, 2024"}
-              </p>
-              <p className="text-base font-sans" style={{ color: "#4a4a4a" }}>
-                {data["venue"] || "The Grand Ballroom"}
-              </p>
-              <p className="text-base font-sans" style={{ color: "#4a4a4a" }}>
-                {data["time"] || "4:00 PM"}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: "floral-romance",
-    name: "Floral Romance",
-    description: "Delicate florals in soft pink tones",
-    thumbnail: "/romantic-floral-wedding-invitation-pink-flowers.jpg",
-    backgroundImage: "/romantic-floral-wedding-invitation-pink-flowers.jpg",
-    category: "Christian",
-    fields: [
-      {
-        id: "bride-name",
-        type: "text",
-        label: "Bride's Name",
-        placeholder: "Emma",
-        defaultValue: "Emma",
-        position: { x: 300, y: 280 },
-        fontSize: 42,
-        fontFamily: "serif",
-        color: "#8b5a7f",
-        align: "center",
-      },
-      {
-        id: "groom-name",
-        type: "text",
-        label: "Groom's Name",
-        placeholder: "James",
-        defaultValue: "James",
-        position: { x: 300, y: 330 },
-        fontSize: 42,
-        fontFamily: "serif",
-        color: "#8b5a7f",
-        align: "center",
-      },
-      {
-        id: "date",
-        type: "text",
-        label: "Wedding Date",
-        placeholder: "July 20, 2024",
-        defaultValue: "July 20, 2024",
-        position: { x: 300, y: 635 },
-        fontSize: 18,
-        fontFamily: "sans",
-        color: "#6a4a5f",
-        align: "center",
-      },
-      {
-        id: "venue",
-        type: "text",
-        label: "Venue",
-        placeholder: "Garden Estate",
-        defaultValue: "Garden Estate",
-        position: { x: 300, y: 670 },
-        fontSize: 15,
-        fontFamily: "sans",
-        color: "#7a5a6f",
-        align: "center",
-      },
-    ],
-    renderTemplate: (data) => (
-      <div className="relative w-full h-full overflow-hidden">
-        <img
-          src="/romantic-floral-wedding-invitation-pink-flowers.jpg"
-          alt="Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 flex flex-col items-center justify-center py-16 px-12">
-          <div className="text-center space-y-4">
-            <p className="text-xs tracking-widest uppercase font-sans" style={{ color: "#7a5a6f" }}>
-              Together with their families
-            </p>
-            <h1 className="text-5xl font-serif" style={{ color: "#8b5a7f" }}>
-              {data["bride-name"] || "Emma"}
-            </h1>
-            <p className="text-2xl font-serif" style={{ color: "#8b5a7f" }}>
-              and
-            </p>
-            <h1 className="text-5xl font-serif" style={{ color: "#8b5a7f" }}>
-              {data["groom-name"] || "James"}
-            </h1>
-            <p className="text-sm tracking-wider uppercase font-sans pt-8" style={{ color: "#7a5a6f" }}>
-              Request the pleasure of your company
-            </p>
-            <div className="mt-8 space-y-2">
-              <p className="text-lg font-semibold font-sans" style={{ color: "#6a4a5f" }}>
-                {data["date"] || "July 20, 2024"}
-              </p>
-              <p className="text-sm font-sans" style={{ color: "#7a5a6f" }}>
-                {data["venue"] || "Garden Estate"}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: "modern-minimal",
-    name: "Modern Minimal",
-    description: "Clean lines and contemporary style",
-    thumbnail: "/modern-minimal-wedding-invitation-black-white.jpg",
-    backgroundImage: "/modern-minimal-wedding-invitation-black-white.jpg",
-    category: "Christian",
-    fields: [
-      {
-        id: "bride-name",
-        type: "text",
-        label: "Bride's Name",
-        placeholder: "Olivia",
-        defaultValue: "Olivia",
-        position: { x: 300, y: 300 },
-        fontSize: 48,
-        fontFamily: "sans",
-        color: "#1a1a1a",
-        align: "center",
-      },
-      {
-        id: "groom-name",
-        type: "text",
-        label: "Groom's Name",
-        placeholder: "Michael",
-        defaultValue: "Michael",
-        position: { x: 300, y: 355 },
-        fontSize: 48,
-        fontFamily: "sans",
-        color: "#1a1a1a",
-        align: "center",
-      },
-      {
-        id: "date",
-        type: "text",
-        label: "Wedding Date",
-        placeholder: "08.20.2024",
-        defaultValue: "08.20.2024",
-        position: { x: 300, y: 500 },
-        fontSize: 20,
-        fontFamily: "sans",
-        color: "#2a2a2a",
-        align: "center",
-      },
-      {
-        id: "venue",
-        type: "text",
-        label: "Venue",
-        placeholder: "Modern Loft",
-        defaultValue: "Modern Loft",
-        position: { x: 300, y: 535 },
-        fontSize: 16,
-        fontFamily: "sans",
-        color: "#4a4a4a",
-        align: "center",
-      },
-    ],
-    renderTemplate: (data) => (
-      <div className="relative w-full h-full overflow-hidden bg-white">
-        <img
-          src="/modern-minimal-wedding-invitation-black-white.jpg"
-          alt="Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 flex flex-col items-center justify-center py-16 px-12">
-          <div className="text-center space-y-6">
-            <h1 className="text-6xl font-sans font-light" style={{ color: "#1a1a1a" }}>
-              {data["bride-name"] || "Olivia"}
-            </h1>
-            <div className="w-12 h-px bg-gray-400 mx-auto" />
-            <h1 className="text-6xl font-sans font-light" style={{ color: "#1a1a1a" }}>
-              {data["groom-name"] || "Michael"}
-            </h1>
-            <div className="mt-12 space-y-3">
-              <p className="text-xl font-sans" style={{ color: "#2a2a2a" }}>
-                {data["date"] || "08.20.2024"}
-              </p>
-              <p className="text-base font-sans" style={{ color: "#4a4a4a" }}>
-                {data["venue"] || "Modern Loft"}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: "rustic-charm",
-    name: "Rustic Charm",
-    description: "Warm wood and natural textures",
-    thumbnail: "/rustic-wedding-invitation-wood-texture-burlap.jpg",
-    backgroundImage: "/rustic-wedding-invitation-wood-texture-burlap.jpg",
-    category: "Christian",
-    fields: [
-      {
-        id: "bride-name",
-        type: "text",
-        label: "Bride's Name",
-        placeholder: "Sophia",
-        defaultValue: "Sophia",
-        position: { x: 300, y: 250 },
-        fontSize: 44,
-        fontFamily: "serif",
-        color: "#5a4030",
-        align: "center",
-      },
-      {
-        id: "groom-name",
-        type: "text",
-        label: "Groom's Name",
-        placeholder: "Daniel",
-        defaultValue: "Daniel",
-        position: { x: 300, y: 300 },
-        fontSize: 44,
-        fontFamily: "serif",
-        color: "#5a4030",
-        align: "center",
-      },
-      {
-        id: "date",
-        type: "text",
-        label: "Wedding Date",
-        placeholder: "September 10, 2024",
-        defaultValue: "September 10, 2024",
-        position: { x: 300, y: 630 },
-        fontSize: 18,
-        fontFamily: "sans",
-        color: "#6a5040",
-        align: "center",
-      },
-      {
-        id: "venue",
-        type: "text",
-        label: "Venue",
-        placeholder: "Barn at Willow Creek",
-        defaultValue: "Barn at Willow Creek",
-        position: { x: 300, y: 665 },
-        fontSize: 16,
-        fontFamily: "sans",
-        color: "#7a6050",
-        align: "center",
-      },
-    ],
-    renderTemplate: (data) => (
-      <div className="relative w-full h-full overflow-hidden">
-        <img
-          src="/rustic-wedding-invitation-wood-texture-burlap.jpg"
-          alt="Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 flex flex-col items-center justify-center py-16 px-12">
-          <div className="text-center space-y-4">
-            <p className="text-sm tracking-wider font-sans" style={{ color: "#7a6050" }}>
-              Join us for the wedding of
-            </p>
-            <h1 className="text-5xl font-serif" style={{ color: "#5a4030" }}>
-              {data["bride-name"] || "Sophia"}
-            </h1>
-            <p className="text-3xl font-serif" style={{ color: "#6a5040" }}>
-              &
-            </p>
-            <h1 className="text-5xl font-serif" style={{ color: "#5a4030" }}>
-              {data["groom-name"] || "Daniel"}
-            </h1>
-            <div className="mt-10 space-y-2">
-              <p className="text-lg font-sans" style={{ color: "#6a5040" }}>
-                {data["date"] || "September 10, 2024"}
-              </p>
-              <p className="text-base font-sans" style={{ color: "#7a6050" }}>
-                {data["venue"] || "Barn at Willow Creek"}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: "luxury-glamour",
-    name: "Luxury Glamour",
+    id: "nikah-royale",
+    name: "Nikah Royale",
     description: "Opulent black and gold elegance",
-    thumbnail: "/luxury-black-gold-wedding-invitation-glamorous.jpg",
-    backgroundImage: "/luxury-black-gold-wedding-invitation-glamorous.jpg",
+    thumbnail: "/images/premium10.jpg",
+    backgroundImage: "/images/premium10-for-real-use.png",
     category: "Muslim",
     fields: [
       {
@@ -482,7 +106,7 @@ export const templates: Template[] = [
     renderTemplate: (data) => (
       <div className="relative w-full h-full overflow-hidden bg-black">
         <img
-          src="/luxury-black-gold-wedding-invitation-glamorous.jpg"
+          src="/images/premium10-for-real-use.png"
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -519,104 +143,13 @@ export const templates: Template[] = [
       </div>
     ),
   },
-  {
-    id: "garden-party",
-    name: "Garden Party",
-    description: "Fresh greenery and botanical beauty",
-    thumbnail: "/garden-party-wedding-invitation-with-greenery-and-.jpg",
-    backgroundImage: "/garden-party-wedding-invitation-with-greenery-and-.jpg",
-    category: "Christian",
-    fields: [
-      {
-        id: "bride-name",
-        type: "text",
-        label: "Bride's Name",
-        placeholder: "Lily",
-        defaultValue: "Lily",
-        position: { x: 300, y: 270 },
-        fontSize: 42,
-        fontFamily: "serif",
-        color: "#2d5016",
-        align: "center",
-      },
-      {
-        id: "groom-name",
-        type: "text",
-        label: "Groom's Name",
-        placeholder: "Ethan",
-        defaultValue: "Ethan",
-        position: { x: 300, y: 320 },
-        fontSize: 42,
-        fontFamily: "serif",
-        color: "#2d5016",
-        align: "center",
-      },
-      {
-        id: "date",
-        type: "text",
-        label: "Wedding Date",
-        placeholder: "May 25, 2024",
-        defaultValue: "May 25, 2024",
-        position: { x: 300, y: 630 },
-        fontSize: 18,
-        fontFamily: "sans",
-        color: "#3d6026",
-        align: "center",
-      },
-      {
-        id: "venue",
-        type: "text",
-        label: "Venue",
-        placeholder: "Botanical Gardens",
-        defaultValue: "Botanical Gardens",
-        position: { x: 300, y: 665 },
-        fontSize: 16,
-        fontFamily: "sans",
-        color: "#4d7036",
-        align: "center",
-      },
-    ],
-    renderTemplate: (data) => (
-      <div className="relative w-full h-full overflow-hidden bg-white">
-        <img
-          src="/garden-party-wedding-invitation-with-greenery-and-.jpg"
-          alt="Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 flex flex-col items-center justify-center py-16 px-12">
-          <div className="text-center space-y-4">
-            <p className="text-sm tracking-wider uppercase font-sans" style={{ color: "#4d7036" }}>
-              Celebrate with us
-            </p>
-            <h1 className="text-5xl font-serif" style={{ color: "#2d5016" }}>
-              {data["bride-name"] || "Lily"}
-            </h1>
-            <p className="text-3xl font-serif" style={{ color: "#3d6026" }}>
-              and
-            </p>
-            <h1 className="text-5xl font-serif" style={{ color: "#2d5016" }}>
-              {data["groom-name"] || "Ethan"}
-            </h1>
-            <div className="mt-10 space-y-2">
-              <p className="text-lg font-sans" style={{ color: "#3d6026" }}>
-                {data["date"] || "May 25, 2024"}
-              </p>
-              <p className="text-base font-sans" style={{ color: "#4d7036" }}>
-                {data["venue"] || "Botanical Gardens"}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-  },
 
   // PREMIUM TEMPLATES
   {
-    id: "royal-elegance",
-    name: "Royal Elegance",
+    id: "noor-palace",
+    name: "Noor Palace",
     description: "Majestic design with crown motifs",
-    thumbnail: "/royal-elegant-wedding-invitation-with-crown-and-lu.jpg",
+    thumbnail: "/images/premium11.jpg",
     isPremium: true,
     category: "Muslim",
     fields: [
@@ -684,7 +217,7 @@ export const templates: Template[] = [
     renderTemplate: (data) => (
       <div className="relative w-full h-full overflow-hidden">
         <img
-          src="/royal-elegant-wedding-invitation-with-crown-and-lu.jpg"
+          src="/images/premium11-for-real-use.png"
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -733,7 +266,7 @@ export const templates: Template[] = [
     id: "celestial-night",
     name: "Celestial Night",
     description: "Starry night sky with magical atmosphere",
-    thumbnail: "/celestial-night-sky-wedding-invitation-with-stars-.jpg",
+    thumbnail: "/images/premium15.jpg",
     isPremium: true,
     category: "Christian",
     fields: [
@@ -801,7 +334,7 @@ export const templates: Template[] = [
     renderTemplate: (data) => (
       <div className="relative w-full h-full overflow-hidden bg-[#0a1128]">
         <img
-          src="/celestial-night-sky-wedding-invitation-with-stars-.jpg"
+          src="/images/premium15-for-real-use.png"
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -845,10 +378,10 @@ export const templates: Template[] = [
     ),
   },
   {
-    id: "art-deco-gatsby",
-    name: "Art Deco Gatsby",
+    id: "aayat-of-love",
+    name: "Aayat of Love",
     description: "1920s glamour with geometric patterns",
-    thumbnail: "/art-deco-gatsby-wedding-invitation-gold-black-geom.jpg",
+    thumbnail: "/images/premium12.jpg",
     isPremium: true,
     category: "Muslim",
     fields: [
@@ -916,7 +449,7 @@ export const templates: Template[] = [
     renderTemplate: (data) => (
       <div className="relative w-full h-full overflow-hidden bg-black">
         <img
-          src="/art-deco-gatsby-wedding-invitation-gold-black-geom.jpg"
+          src="/images/premium12-for-real-use.png"
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -961,10 +494,10 @@ export const templates: Template[] = [
     ),
   },
   {
-    id: "watercolor-dream",
-    name: "Watercolor Dream",
+    id: "blessed-promise",
+    name: "Blessed Promise",
     description: "Soft pastel watercolor artistry",
-    thumbnail: "/watercolor-wedding-invitation-soft-pastel-artistic.jpg",
+    thumbnail: "/images/premium14.jpg",
     isPremium: true,
     category: "Christian",
     fields: [
@@ -1032,7 +565,7 @@ export const templates: Template[] = [
     renderTemplate: (data) => (
       <div className="relative w-full h-full overflow-hidden">
         <img
-          src="/watercolor-wedding-invitation-soft-pastel-artistic.jpg"
+          src="/images/premium14-for-real-use.png"
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -1074,406 +607,13 @@ export const templates: Template[] = [
       </div>
     ),
   },
-  {
-    id: "tropical-paradise",
-    name: "Tropical Paradise",
-    description: "Vibrant tropical flowers and leaves",
-    thumbnail: "/tropical-paradise-wedding-invitation-palm-leaves-e.jpg",
-    isPremium: true,
-    category: "Christian",
-    fields: [
-      {
-        id: "bride-name",
-        type: "text",
-        label: "Bride's Name",
-        placeholder: "Marina",
-        defaultValue: "Marina",
-        position: { x: 300, y: 320 },
-        fontSize: 38,
-        fontFamily: "serif",
-        color: "#FF6B9D",
-        align: "center",
-      },
-      {
-        id: "groom-name",
-        type: "text",
-        label: "Groom's Name",
-        placeholder: "Diego",
-        defaultValue: "Diego",
-        position: { x: 300, y: 370 },
-        fontSize: 38,
-        fontFamily: "serif",
-        color: "#FF6B9D",
-        align: "center",
-      },
-      {
-        id: "date",
-        type: "text",
-        label: "Wedding Date",
-        placeholder: "July 15, 2024",
-        defaultValue: "July 15, 2024",
-        position: { x: 300, y: 530 },
-        fontSize: 20,
-        fontFamily: "sans",
-        color: "#E8527A",
-        align: "center",
-      },
-      {
-        id: "venue",
-        type: "text",
-        label: "Venue",
-        placeholder: "Beach Resort",
-        defaultValue: "Beach Resort",
-        position: { x: 300, y: 565 },
-        fontSize: 16,
-        fontFamily: "sans",
-        color: "#D14468",
-        align: "center",
-      },
-      {
-        id: "time",
-        type: "text",
-        label: "Time",
-        placeholder: "5:00 PM",
-        defaultValue: "5:00 PM",
-        position: { x: 300, y: 595 },
-        fontSize: 16,
-        fontFamily: "sans",
-        color: "#D14468",
-        align: "center",
-      },
-    ],
-    renderTemplate: (data) => (
-      <div className="relative w-full h-full overflow-hidden">
-        <img
-          src="/tropical-paradise-wedding-invitation-palm-leaves-e.jpg"
-          alt="Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 flex flex-col items-center py-20 px-12">
-          <div className="text-center space-y-6">
-            <p
-              className="text-sm tracking-wider uppercase font-sans"
-              style={{ fontFamily: "var(--font-sans)", color: "#D14468" }}
-            >
-              Destination Wedding
-            </p>
-            <h1 className="text-5xl font-serif" style={{ fontFamily: "var(--font-serif)", color: "#FF6B9D" }}>
-              {data["bride-name"] || "Marina"}
-            </h1>
-            <Flower2 className="w-6 h-6 text-[#FF6B9D] mx-auto" />
-            <h1 className="text-5xl font-serif" style={{ fontFamily: "var(--font-serif)", color: "#FF6B9D" }}>
-              {data["groom-name"] || "Diego"}
-            </h1>
-            <p className="text-base pt-4 font-sans" style={{ fontFamily: "var(--font-sans)", color: "#E8527A" }}>
-              Join us for a tropical celebration
-            </p>
-
-            <div className="pt-6 space-y-2">
-              <p
-                className="text-xl font-semibold font-sans"
-                style={{ fontFamily: "var(--font-sans)", color: "#E8527A" }}
-              >
-                {data["date"] || "July 15, 2024"}
-              </p>
-              <p className="text-base font-sans" style={{ fontFamily: "var(--font-sans)", color: "#D14468" }}>
-                {data["venue"] || "Beach Resort"}
-              </p>
-              <p className="text-sm font-sans" style={{ fontFamily: "var(--font-sans)", color: "#D14468" }}>
-                {data["time"] || "5:00 PM"}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: "vintage-romance",
-    name: "Vintage Romance",
-    description: "Nostalgic vintage lace and antique style",
-    thumbnail: "/vintage-romantic-wedding-invitation-lace-antique-s.jpg",
-    isPremium: true,
-    category: "Christian",
-    fields: [
-      {
-        id: "bride-name",
-        type: "text",
-        label: "Bride's Name",
-        placeholder: "Elizabeth",
-        defaultValue: "Elizabeth",
-        position: { x: 300, y: 250 },
-        fontSize: 38,
-        fontFamily: "serif",
-        color: "#8B7355",
-        align: "center",
-      },
-      {
-        id: "groom-name",
-        type: "text",
-        label: "Groom's Name",
-        placeholder: "Henry",
-        defaultValue: "Henry",
-        position: { x: 300, y: 300 },
-        fontSize: 38,
-        fontFamily: "serif",
-        color: "#8B7355",
-        align: "center",
-      },
-      {
-        id: "date",
-        type: "text",
-        label: "Wedding Date",
-        placeholder: "March 25, 2024",
-        defaultValue: "March 25, 2024",
-        position: { x: 300, y: 630 },
-        fontSize: 20,
-        fontFamily: "sans",
-        color: "#9B8568",
-        align: "center",
-      },
-      {
-        id: "venue",
-        type: "text",
-        label: "Venue",
-        placeholder: "Heritage Manor",
-        defaultValue: "Heritage Manor",
-        position: { x: 300, y: 665 },
-        fontSize: 16,
-        fontFamily: "sans",
-        color: "#A5906B",
-        align: "center",
-      },
-      {
-        id: "time",
-        type: "text",
-        label: "Time",
-        placeholder: "2:30 PM",
-        defaultValue: "2:30 PM",
-        position: { x: 300, y: 695 },
-        fontSize: 16,
-        fontFamily: "sans",
-        color: "#A5906B",
-        align: "center",
-      },
-    ],
-    renderTemplate: (data) => (
-      <div className="relative w-full h-full overflow-hidden">
-        <img
-          src="/vintage-romantic-wedding-invitation-lace-antique-s.jpg"
-          alt="Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 flex flex-col items-center justify-between py-16 px-12">
-          <div className="text-center space-y-5 mt-28">
-            <p
-              className="text-sm tracking-wider uppercase font-sans"
-              style={{ fontFamily: "var(--font-sans)", color: "#9B8568" }}
-            >
-              A Vintage Affair
-            </p>
-            <p className="text-lg font-sans" style={{ fontFamily: "var(--font-sans)", color: "#8B7355" }}>
-              The Wedding of
-            </p>
-            <h1 className="text-5xl font-serif" style={{ fontFamily: "var(--font-serif)", color: "#8B7355" }}>
-              {data["bride-name"] || "Elizabeth"}
-            </h1>
-            <p className="text-2xl font-serif" style={{ fontFamily: "var(--font-serif)", color: "#9B8568" }}>
-              &
-            </p>
-            <h1 className="text-5xl font-serif" style={{ fontFamily: "var(--font-serif)", color: "#8B7355" }}>
-              {data["groom-name"] || "Henry"}
-            </h1>
-          </div>
-
-          <div className="text-center space-y-2">
-            <p className="text-xl font-semibold font-sans" style={{ fontFamily: "var(--font-sans)", color: "#9B8568" }}>
-              {data["date"] || "March 25, 2024"}
-            </p>
-            <p className="text-base font-sans" style={{ fontFamily: "var(--font-sans)", color: "#A5906B" }}>
-              {data["venue"] || "Heritage Manor"}
-            </p>
-            <p className="text-sm font-sans" style={{ fontFamily: "var(--font-sans)", color: "#A5906B" }}>
-              {data["time"] || "2:30 PM"}
-            </p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-
+  
   // NEW PREMIUM TEMPLATES INSPIRED BY USER IMAGES
   {
-    id: "soft-magnolia",
-    name: "Soft Magnolia",
-    description: "Delicate pink watercolor with magnolia flowers",
-    thumbnail: "/premium1.jpg",
-    backgroundImage: "/premium1-for-real-use.jpg", // Separate clean background
-    isPremium: true,
-    category: "Hindu",
-    fields: [
-      {
-        id: "bride-name",
-        type: "text",
-        label: "Bride's Name",
-        placeholder: "Claudia",
-        defaultValue: "Claudia",
-        position: { x: 300, y: 215 },
-        fontSize: 48,
-        fontFamily: "serif",
-        color: "#4a1f3a",
-        align: "center",
-      },
-      {
-        id: "groom-name",
-        type: "text",
-        label: "Groom's Name",
-        placeholder: "Morgan",
-        defaultValue: "Morgan",
-        position: { x: 300, y: 280 },
-        fontSize: 48,
-        fontFamily: "serif",
-        color: "#4a1f3a",
-        align: "center",
-      },
-      {
-        id: "date",
-        type: "text",
-        label: "Date",
-        placeholder: "30",
-        defaultValue: "30",
-        position: { x: 300, y: 380 },
-        fontSize: 72,
-        fontFamily: "serif",
-        color: "#1a1a1a",
-        align: "center",
-      },
-      {
-        id: "month",
-        type: "text",
-        label: "Month",
-        placeholder: "NOVEMBER",
-        defaultValue: "NOVEMBER",
-        position: { x: 300, y: 380 },
-        fontSize: 14,
-        fontFamily: "sans",
-        color: "#2a2a2a",
-        align: "center",
-      },
-      {
-        id: "year",
-        type: "text",
-        label: "Year",
-        placeholder: "2023",
-        defaultValue: "2023",
-        position: { x: 300, y: 380 },
-        fontSize: 32,
-        fontFamily: "serif",
-        color: "#1a1a1a",
-        align: "center",
-      },
-      {
-        id: "time",
-        type: "text",
-        label: "Time",
-        placeholder: "AT 8 AM",
-        defaultValue: "AT 8 AM",
-        position: { x: 300, y: 380 },
-        fontSize: 14,
-        fontFamily: "sans",
-        color: "#2a2a2a",
-        align: "center",
-      },
-      {
-        id: "venue-name",
-        type: "text",
-        label: "Venue Name",
-        placeholder: "BORCELLE HOTEL",
-        defaultValue: "BORCELLE HOTEL",
-        position: { x: 300, y: 470 },
-        fontSize: 15,
-        fontFamily: "sans",
-        color: "#1a1a1a",
-        align: "center",
-      },
-      {
-        id: "venue-address",
-        type: "text",
-        label: "Venue Address",
-        placeholder: "123 ANYWHERE ST., ANY CITY, ST 12345",
-        defaultValue: "123 ANYWHERE ST., ANY CITY, ST 12345",
-        position: { x: 300, y: 470 },
-        fontSize: 10,
-        fontFamily: "sans",
-        color: "#4a4a4a",
-        align: "center",
-      },
-    ],
-    renderTemplate: (data) => (
-      <div className="relative w-full h-full overflow-hidden bg-pink-50">
-        <img
-          src="/premium1-for-real-use.jpg"
-          alt="Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 flex flex-col items-center justify-between py-12 px-12">
-          <div className="text-center space-y-2 mt-2">
-            <p className="text-xs tracking-wider uppercase font-sans" style={{ color: "#6a4a5a" }}>
-              You are invited to
-            </p>
-            <p className="text-xs tracking-widest uppercase font-sans" style={{ color: "#5a3a4a" }}>
-              The Wedding of
-            </p>
-          </div>
-
-          <div className="text-center space-y-3">
-            <h1 className="text-6xl font-serif italic" style={{ color: "#4a1f3a" }}>
-              {data["bride-name"] || "Claudia"}
-            </h1>
-            <p className="text-4xl font-serif italic" style={{ color: "#5a2f4a" }}>
-              &
-            </p>
-            <h1 className="text-6xl font-serif italic" style={{ color: "#4a1f3a" }}>
-              {data["groom-name"] || "Morgan"}
-            </h1>
-          </div>
-
-          <div className="text-center space-y-1">
-            <div className="flex items-center justify-center gap-4">
-              <p className="text-sm tracking-widest uppercase font-sans" style={{ color: "#2a2a2a" }}>
-                {data["month"] || "NOVEMBER"}
-              </p>
-              <p className="text-7xl font-serif font-bold" style={{ color: "#1a1a1a" }}>
-                {data["date"] || "30"}
-              </p>
-              <p className="text-sm tracking-widest uppercase font-sans" style={{ color: "#2a2a2a" }}>
-                {data["time"] || "AT 8 AM"}
-              </p>
-            </div>
-            <p className="text-3xl font-serif" style={{ color: "#1a1a1a" }}>
-              {data["year"] || "2023"}
-            </p>
-          </div>
-
-          <div className="text-center space-y-1 mb-4">
-            <p className="text-base font-sans font-bold tracking-wide" style={{ color: "#1a1a1a" }}>
-              {data["venue-name"] || "BORCELLE HOTEL"}
-            </p>
-            <p className="text-xs font-sans tracking-wide" style={{ color: "#4a4a4a" }}>
-              {data["venue-address"] || "123 ANYWHERE ST., ANY CITY, ST 12345"}
-            </p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: "navy-rose-garden",
-    name: "Navy Rose Garden",
+    id: "barakah-gold",
+    name: "Barakah Gold",
     description: "Dramatic navy blue with watercolor pink roses",
-    thumbnail: "/navy-blue-pink-rose-wedding-save-date.jpg",
+    thumbnail: "/images/premium13.jpg",
     isPremium: true,
     category: "Muslim",
     fields: [
@@ -1541,7 +681,7 @@ export const templates: Template[] = [
     renderTemplate: (data) => (
       <div className="relative w-full h-full overflow-hidden bg-[#1a3a52]">
         <img
-          src="/navy-blue-pink-rose-wedding-save-date.jpg"
+          src="/images/premium13-for-real-use.png"
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -1607,181 +747,8 @@ export const templates: Template[] = [
     ),
   },
   {
-    id: "orchid-watercolor",
-    name: "Orchid Watercolor",
-    description: "Soft pastel washes with elegant white orchids",
-    thumbnail: "/watercolor-orchid-wedding-invitation-pastel.jpg",
-    isPremium: true,
-    category: "Christian",
-    fields: [
-      {
-        id: "bride-name",
-        type: "text",
-        label: "Bride's Name",
-        placeholder: "Jamet J",
-        defaultValue: "Jamet J",
-        position: { x: 300, y: 205 },
-        fontSize: 42,
-        fontFamily: "serif",
-        color: "#2a2a2a",
-        align: "center",
-      },
-      {
-        id: "groom-name",
-        type: "text",
-        label: "Groom's Name",
-        placeholder: "Larissa H",
-        defaultValue: "Larissa H",
-        position: { x: 300, y: 315 },
-        fontSize: 42,
-        fontFamily: "serif",
-        color: "#2a2a2a",
-        align: "center",
-      },
-      {
-        id: "date",
-        type: "text",
-        label: "Wedding Date",
-        placeholder: "Saturday, 18 November 2024",
-        defaultValue: "Saturday, 18 November 2024",
-        position: { x: 200, y: 405 },
-        fontSize: 18,
-        fontFamily: "sans",
-        color: "#1a1a1a",
-        align: "center",
-      },
-      {
-        id: "time",
-        type: "text",
-        label: "Time",
-        placeholder: "8.00 PM",
-        defaultValue: "8.00 PM",
-        position: { x: 400, y: 405 },
-        fontSize: 18,
-        fontFamily: "sans",
-        color: "#1a1a1a",
-        align: "center",
-      },
-      {
-        id: "venue",
-        type: "text",
-        label: "Venue",
-        placeholder: "123 Anywhere St., Any City, ST 12345",
-        defaultValue: "123 Anywhere St., Any City, ST 12345",
-        position: { x: 300, y: 465 },
-        fontSize: 13,
-        fontFamily: "sans",
-        color: "#2a2a2a",
-        align: "center",
-      },
-    ],
-    renderTemplate: (data) => (
-      <div className="relative w-full h-full overflow-hidden bg-gradient-to-br from-[#fef5f1] via-[#fef9f5] to-[#fff0e6]">
-        <img
-          src="/watercolor-orchid-wedding-invitation-pastel.jpg"
-          alt="Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 flex flex-col items-center px-12 py-16">
-          <div className="text-center space-y-1 mt-20">
-            <p
-              className="text-xs tracking-wider uppercase font-sans"
-              style={{ fontFamily: "var(--font-sans)", color: "#4a4a4a" }}
-            >
-              You are invited to
-            </p>
-            <p
-              className="text-sm tracking-wide uppercase mb-4 font-sans"
-              style={{ fontFamily: "var(--font-sans)", color: "#2a2a2a" }}
-            >
-              The Wedding of
-            </p>
-
-            <div className="py-2">
-              <h1
-                className="text-6xl italic leading-tight font-serif"
-                style={{ fontFamily: "var(--font-serif)", color: "#2a2a2a" }}
-              >
-                {data["bride-name"] || "Jamet J"}
-              </h1>
-              <p
-                className="text-4xl font-serif italic my-3"
-                style={{ fontFamily: "var(--font-serif)", color: "#4a4a4a" }}
-              >
-                &
-              </p>
-              <h1
-                className="text-6xl italic leading-tight font-serif"
-                style={{ fontFamily: "var(--font-serif)", color: "#2a2a2a" }}
-              >
-                {data["groom-name"] || "Larissa H"}
-              </h1>
-            </div>
-          </div>
-
-          <div className="text-center mt-8 bg-white/40 backdrop-blur-sm rounded-lg px-8 py-4">
-            <div className="flex items-center justify-center gap-12 border-2 border-[#2a2a2a] px-6 py-3">
-              <div className="text-center">
-                <p
-                  className="text-xs uppercase tracking-wider mb-1 font-sans"
-                  style={{ fontFamily: "var(--font-sans)", color: "#1a1a1a" }}
-                >
-                  Saturday
-                </p>
-                <p
-                  className="text-6xl font-bold leading-none font-sans"
-                  style={{ fontFamily: "var(--font-sans)", color: "#1a1a1a" }}
-                >
-                  18
-                </p>
-                <p
-                  className="text-xs mt-1 uppercase font-sans"
-                  style={{ fontFamily: "var(--font-sans)", color: "#1a1a1a" }}
-                >
-                  November
-                </p>
-                <p className="text-sm font-sans" style={{ fontFamily: "var(--font-sans)", color: "#2a2a2a" }}>
-                  2024
-                </p>
-              </div>
-              <div className="w-px h-20 bg-[#2a2a2a]"></div>
-              <div className="text-center">
-                <p
-                  className="text-xs uppercase tracking-wider mb-2 font-sans"
-                  style={{ fontFamily: "var(--font-sans)", color: "#1a1a1a" }}
-                >
-                  At
-                </p>
-                <p
-                  className="text-4xl font-semibold font-sans"
-                  style={{ fontFamily: "var(--font-sans)", color: "#1a1a1a" }}
-                >
-                  8.00 PM
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-6">
-            <p
-              className="text-xs uppercase tracking-wider mb-1 font-sans"
-              style={{ fontFamily: "var(--font-sans)", color: "#4a4a4a" }}
-            >
-              At the
-            </p>
-            <p className="text-sm font-sans" style={{ fontFamily: "var(--font-sans)", color: "#2a2a2a" }}>
-              {data["venue"] || "123 Anywhere St., Any City, ST 12345"}
-            </p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-
-  {
-    id: "indian-floral-premium",
-    name: "Indian Floral Premium",
+    id: "mangalam-vivaah",
+    name: "Mangalam Vivaah",
     description: "Elegant burgundy with floral corners and Om symbol",
     thumbnail: "/images/premium1.jpg",
     backgroundImage: "/images/premium1-for-real-use.png",
@@ -1982,8 +949,8 @@ export const templates: Template[] = [
     ),
   },
   {
-    id: "rose-garden-wreath-premium",
-    name: "Rose Garden Wreath",
+    id: "saat-phere-royale",
+    name: "Saat Phere Royale",
     description: "Elegant pink roses with gold circular wreath frame",
     thumbnail: "/images/premium2.jpg",
     backgroundImage: "/images/premium2-for-real-use.png",
@@ -2168,8 +1135,8 @@ export const templates: Template[] = [
     ),
   },
   {
-    id: "indian-celebration-premium",
-    name: "Indian Celebration",
+    id: "anand-bandhan",
+    name: "Anand Bandhan",
     description: "Save the date with purple curtains and Indian couple illustration",
     thumbnail: "/images/premium3.jpg",
     backgroundImage: "/images/premium3-for-real-use.png",
@@ -2934,8 +1901,8 @@ export const templates: Template[] = [
     ),
   },
   {
-    id: "hindu-traditional",
-    name: "Hindu Traditional",
+    id: "sanskriti-vivah",
+    name: "Sanskriti Vivah",
     isPremium: true,
     thumbnail: "/images/premium7.jpg",
     backgroundImage: "/images/premium7-for-real-use.png",
@@ -3112,8 +2079,8 @@ export const templates: Template[] = [
     ),
   },
   {
-    id: "sangeet-celebration",
-    name: "Sangeet Celebration",
+    id: "kalyanam-gold",
+    name: "Kalyanam Gold",
     isPremium: true,
     thumbnail: "/images/premium8.jpg",
     backgroundImage: "/images/premium8-for-real-use.png",

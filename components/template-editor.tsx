@@ -164,7 +164,7 @@ export function TemplateEditor({ templateId, onBack }: TemplateEditorProps) {
           </Button>
         </div>
 
-        <div className="flex-1 flex items-center justify-center p-8 bg-muted/30">
+        <div className="flex-1 flex items-center justify-center p-8 bg-muted/30 overflow-y-scroll mt-0 pt-[227px]">
           <Card
             id="template-canvas"
             className="shadow-2xl"
