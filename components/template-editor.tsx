@@ -10,6 +10,8 @@ import { ArrowLeft } from 'lucide-react';
 import { templates } from "./wedding-templates"
 import { PublishDialog } from "./publish-dialog"
 import domtoimage from "dom-to-image"
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 type TemplateEditorProps = {
   templateId: string
@@ -21,7 +23,11 @@ export function TemplateEditor({ templateId, onBack }: TemplateEditorProps) {
   const [formData, setFormData] = useState<Record<string, string>>(() => {
     const initialData: Record<string, string> = {}
     template?.fields.forEach((field) => {
-      initialData[field.id] = field.defaultValue || ""
+      if (field.id === "date") {
+        initialData[field.id] = new Date().toISOString().split('T')[0]
+      } else {
+        initialData[field.id] = field.defaultValue || ""
+      }
     })
     return initialData
   })
@@ -136,18 +142,33 @@ export function TemplateEditor({ templateId, onBack }: TemplateEditorProps) {
         </div>
 
         <div className="p-6 space-y-6">
-          {template.fields.map((field) => (
-            <div key={field.id} className="space-y-2">
-              <Label htmlFor={field.id}>{field.label}</Label>
-              <Input
-                id={field.id}
-                value={formData[field.id] || ""}
-                onChange={(e) => handleFieldChange(field.id, e.target.value)}
-                placeholder={field.placeholder}
-                maxLength={field.maxLength}
-              />
-            </div>
-          ))}
+          {template.fields.map((field) =>
+            field.id === "date" ? (
+              <div key={field.id} className="space-y-2">
+                <Label htmlFor={field.id}>{field.label}</Label>
+                <DatePicker
+                  id={field.id}
+                  selected={new Date(formData[field.id])}
+                  onChange={(date: Date | null) => date && handleFieldChange(field.id, date.toISOString().split('T')[0])}
+                  placeholderText={field.placeholder}
+                  className="w-full px-3 py-2 border border-border rounded-md"
+                  dateFormat="yyyy-MM-dd"
+                />
+              </div>
+            ) : (
+              <div key={field.id} className="space-y-2">
+                <Label htmlFor={field.id}>{field.label}</Label>
+                <Input
+                  id={field.id}
+                  value={formData[field.id] || ""}
+                  onChange={(e) => handleFieldChange(field.id, e.target.value)}
+                  placeholder={field.placeholder}
+                  maxLength={field.maxLength}
+                />
+              </div>
+            )
+          )}
+       
         </div>
       </div>
 

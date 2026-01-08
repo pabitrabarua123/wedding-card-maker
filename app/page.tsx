@@ -298,36 +298,41 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {[
               {
-                name: "Indian Floral Premium",
-                category: "Hindu",
+                name: "Celestial Night",
+                category: "Christian",
+                image: "/images/premium15.jpg",
+                id: "celestial-night",
+              },
+              {
+                id: "aayat-of-love",
+                name: "Aayat of Love",
+                image: "/images/premium12.jpg",
+                category: "Muslim",
+              },
+              {
+                id: "blessed-promise",
+                name: "Blessed Promise",
+                image: "/images/premium14.jpg",
+                category: "Christian",
+              },
+              {
+                id: "barakah-gold",
+                name: "Barakah Gold",
+                image: "/images/premium13.jpg",
+                category: "Muslim",
+              },
+              {
+                id: "mangalam-vivaah",
+                name: "Mangalam Vivaah",
                 image: "/images/premium1.jpg",
-                id: "indian-floral-premium",
-              },
-              {
-                name: "Rose Garden Wreath",
-                category: "Christian",
-                image: "/images/premium2.jpg",
-                id: "rose-garden-wreath-premium",
-              },
-              {
-                name: "Indian Celebration",
                 category: "Hindu",
-                image: "/images/premium3.jpg",
-                id: "indian-celebration-premium",
               },
-              {
-                name: "Mehndi Celebration",
-                category: "Hindu",
-                image: "/images/premium4.jpg",
+              { 
                 id: "mehndi-celebration-premium",
+                name: "Mehndi Celebration",
+                image: "/images/premium4.jpg",
+                category: "Hindu",
               },
-              {
-                name: "Garden Romance",
-                category: "Christian",
-                image: "/images/premium5.jpg",
-                id: "garden-romance-premium",
-              },
-              { name: "Elegant Couple", category: "Muslim", image: "/images/premium6.jpg", id: "elegant-couple" },
             ].map((template, idx) => (
               <Card
                 key={idx}
@@ -350,7 +355,7 @@ export default function Home() {
                     </span>
                   </div>
                 </div>
-                <div className="p-4">
+                <div className="p-4 pt-0">
                   <h4 className="font-serif font-semibold text-lg text-[#8B4513]">{template.name}</h4>
                 </div>
               </Card>
