@@ -8,7 +8,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 import nodemailer from "nodemailer";
 
-// Factory function to create auth options at runtime
+// Factory function to create auth options
 const createAuthOptions = (): NextAuthOptions => ({
   adapter: PrismaAdapter(prisma), // runtime only
   providers: [
@@ -58,7 +58,7 @@ const createAuthOptions = (): NextAuthOptions => ({
   debug: process.env.NODE_ENV === "development",
 });
 
-// Wrap NextAuth in a function to ensure all runtime objects are lazy
-const handler = (req: any, res: any) => NextAuth(req, res, createAuthOptions());
+// Handler for GET and POST requests
+const handler = NextAuth(createAuthOptions());
 
 export { handler as GET, handler as POST };
