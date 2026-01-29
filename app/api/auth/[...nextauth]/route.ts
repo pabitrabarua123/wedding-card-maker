@@ -58,7 +58,15 @@ const createAuthOptions = (): NextAuthOptions => ({
   debug: process.env.NODE_ENV === "development",
 });
 
-// Handler for GET and POST requests
-const handler = NextAuth(createAuthOptions());
+// Lazily create handler on first request to defer Prisma initialization
+let authHandler: ReturnType<typeof NextAuth> | null = null;
 
-export { handler as GET, handler as POST };
+function getAuthHandler() {
+  if (!authHandler) {
+    authHandler = NextAuth(createAuthOptions());
+  }
+  return authHandler;
+}
+
+export const GET = (req: Request) => getAuthHandler()(req);
+export const POST = (req: Request) => getAuthHandler()(req);
