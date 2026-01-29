@@ -18,9 +18,13 @@ import {
   Wand2,
   Send,
 } from "lucide-react"
+import { useSession, signOut } from "next-auth/react"
+import { se } from "date-fns/locale"
+
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { data: session } = useSession();
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#FFFAF5] to-[#FFF5F0]">
@@ -46,6 +50,11 @@ export default function Home() {
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
         </Button>
+        { session && (
+          <Button onClick={() => signOut()} className="ml-4 bg-red-500 hover:bg-red-600 text-white rounded-full px-4 py-2 shadow-lg hover:shadow-xl transition-all duration-300"> 
+            Sign Out
+          </Button>
+        ) }
       </div>
 
       {isMenuOpen && (
@@ -345,7 +354,7 @@ export default function Home() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
-                    <Link href={`/editor?template=${template.id}`}>
+                    <Link href={ session?.user?.email? `/editor?template=${template.id}` : `/auth/signin`} >
                       <Button className="bg-[#D4AF37] hover:bg-[#B8941F] text-white rounded-full">Edit Template</Button>
                     </Link>
                   </div>
