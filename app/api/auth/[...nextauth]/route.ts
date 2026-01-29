@@ -1,3 +1,4 @@
+// app/api/auth/[...nextauth]/route.ts
 export const dynamic = "force-dynamic";
 
 import type { NextAuthOptions } from "next-auth";
@@ -7,20 +8,24 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 import nodemailer from "nodemailer";
 
+// Factory function to create auth options at runtime
 const createAuthOptions = (): NextAuthOptions => ({
-  adapter: PrismaAdapter(prisma), // PrismaAdapter is created here at runtime
+  adapter: PrismaAdapter(prisma), // runtime only
   providers: [
     EmailProvider({
       from: process.env.EMAIL_FROM!,
       async sendVerificationRequest({ identifier, url }) {
+        // Create Nodemailer transporter at runtime
         const transporter = nodemailer.createTransport({
           host: process.env.BREVO_SMTP_HOST!,
           port: 587,
-          secure: false,
+          secure: false, // Must be false for 587
           auth: {
             user: process.env.BREVO_SMTP_USER!,
             pass: process.env.BREVO_SMTP_PASS!,
           },
+          // optional: ignore TLS errors in dev
+          tls: process.env.NODE_ENV === "development" ? { rejectUnauthorized: false } : undefined,
         });
 
         await transporter.sendMail({
@@ -46,9 +51,14 @@ const createAuthOptions = (): NextAuthOptions => ({
   ],
   session: { strategy: "jwt" },
   secret: process.env.NEXTAUTH_SECRET!,
+  pages: {
+    signIn: "/auth/signin",
+    verifyRequest: "/auth/check-email", // optional: custom verify page
+  },
+  debug: process.env.NODE_ENV === "development",
 });
 
-// Wrap everything inside the handler function
+// Wrap NextAuth in a function to ensure all runtime objects are lazy
 const handler = (req: any, res: any) => NextAuth(req, res, createAuthOptions());
 
 export { handler as GET, handler as POST };
