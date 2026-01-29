@@ -1,18 +1,17 @@
 export const dynamic = "force-dynamic";
 
-import NextAuth, { type NextAuthOptions } from "next-auth";
+import type { NextAuthOptions } from "next-auth";
+import NextAuth from "next-auth";
 import EmailProvider from "next-auth/providers/email";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 import nodemailer from "nodemailer";
 
-// Build-time safe factory function
-const getAuthOptions = (): NextAuthOptions => ({
-  adapter: PrismaAdapter(prisma),
+const createAuthOptions = (): NextAuthOptions => ({
+  adapter: PrismaAdapter(prisma), // PrismaAdapter is created here at runtime
   providers: [
     EmailProvider({
       from: process.env.EMAIL_FROM!,
-
       async sendVerificationRequest({ identifier, url }) {
         const transporter = nodemailer.createTransport({
           host: process.env.BREVO_SMTP_HOST!,
@@ -49,7 +48,7 @@ const getAuthOptions = (): NextAuthOptions => ({
   secret: process.env.NEXTAUTH_SECRET!,
 });
 
-// Only call NextAuth inside the handler
-const handler = (req: any, res: any) => NextAuth(req, res, getAuthOptions());
+// Wrap everything inside the handler function
+const handler = (req: any, res: any) => NextAuth(req, res, createAuthOptions());
 
 export { handler as GET, handler as POST };
