@@ -6,28 +6,27 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 import nodemailer from "nodemailer";
 
-export const authOptions: NextAuthOptions = {
+// Build-time safe factory function
+const getAuthOptions = (): NextAuthOptions => ({
   adapter: PrismaAdapter(prisma),
   providers: [
     EmailProvider({
       from: process.env.EMAIL_FROM!,
 
       async sendVerificationRequest({ identifier, url }) {
-        const host = process.env.BREVO_SMTP_HOST!;
-        const user = process.env.BREVO_SMTP_USER!;
-        const pass = process.env.BREVO_SMTP_PASS!;
-        const from = process.env.EMAIL_FROM!;
-
         const transporter = nodemailer.createTransport({
-          host,
+          host: process.env.BREVO_SMTP_HOST!,
           port: 587,
           secure: false,
-          auth: { user, pass },
+          auth: {
+            user: process.env.BREVO_SMTP_USER!,
+            pass: process.env.BREVO_SMTP_PASS!,
+          },
         });
 
         await transporter.sendMail({
           to: identifier,
-          from,
+          from: process.env.EMAIL_FROM!,
           subject: "Sign in to Wedify",
           html: `
             <div style="font-family: Arial, sans-serif;">
@@ -46,13 +45,11 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-
-  session: {
-    strategy: "jwt",
-  },
-
+  session: { strategy: "jwt" },
   secret: process.env.NEXTAUTH_SECRET!,
-};
+});
 
-const handler = NextAuth(authOptions);
+// Only call NextAuth inside the handler
+const handler = (req: any, res: any) => NextAuth(req, res, getAuthOptions());
+
 export { handler as GET, handler as POST };
