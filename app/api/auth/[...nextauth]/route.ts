@@ -1,20 +1,8 @@
 import NextAuth, { type NextAuthOptions } from "next-auth";
 import EmailProvider from "next-auth/providers/email";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
 import nodemailer from "nodemailer";
-
-const transporter = nodemailer.createTransport({
-  host: process.env.BREVO_SMTP_HOST,
-  port: 587,
-  secure: false, // true only for 465
-  auth: {
-    user: process.env.BREVO_SMTP_USER,
-    pass: process.env.BREVO_SMTP_PASS,
-  },
-});
-
-const prisma = new PrismaClient();
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -23,6 +11,16 @@ export const authOptions: NextAuthOptions = {
       from: process.env.EMAIL_FROM,
 
       async sendVerificationRequest({ identifier, url }) {
+          const transporter = nodemailer.createTransport({
+          host: process.env.BREVO_SMTP_HOST,
+          port: 587,
+          secure: false,
+          auth: {
+            user: process.env.BREVO_SMTP_USER,
+            pass: process.env.BREVO_SMTP_PASS,
+          },
+        });
+        
         await transporter.sendMail({
           to: identifier,
           from: process.env.EMAIL_FROM,
