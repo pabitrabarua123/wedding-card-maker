@@ -20,7 +20,7 @@ export const authOptions: NextAuthOptions = {
             pass: process.env.BREVO_SMTP_PASS,
           },
         });
-        
+
         await transporter.sendMail({
           to: identifier,
           from: process.env.EMAIL_FROM,
