@@ -8,9 +8,10 @@ import { ArrowLeft } from "lucide-react";
 
 export default function SignInPage() {
   const [email, setEmail] = useState<string>("");
-
+  const [submit_form, setSubmitForm] = useState(false);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitForm(true);
 
     await signIn("email", {
       email,
@@ -43,13 +44,41 @@ export default function SignInPage() {
                 <input
                   type="email"
                   required
-                  placeholder="you@example.com"
+                  placeholder="youremail@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="border p-2 w-full rounded-md"
                 />
-                <button className="bg-black text-white px-4 py-2 cursor-pointer w-full bg-gradient-to-r from-[#8B4513] to-[#D4A574] hover:from-[#7A3A0F] hover:to-[#C4956A] rounded-md" type="submit">
-                  Log in
+                <button className="bg-black text-white px-4 py-2.5 cursor-pointer w-full bg-gradient-to-r from-[#8B4513] to-[#D4A574] hover:from-[#7A3A0F] hover:to-[#C4956A] rounded-md" type="submit">
+                 { submit_form ? 
+                   <span className="flex items-center justify-center gap-[7px]">
+                     <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 50 50"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                    <circle
+                      cx="25"
+                      cy="25"
+                      r="20"
+                      fill="none"
+                      stroke="#ffffff"
+                      strokeWidth="5"
+                      strokeLinecap="round"
+                      strokeDasharray="31.4 31.4"
+                    >
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      from="0 25 25"
+                      to="360 25 25"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </circle>
+                 </svg>
+                Sending verification email</span> : <span>Log in</span>}
                 </button>
               </form>
               <p className="text-[13px] font-medium mt-4 text-gray-800">Don't have an account? <Link href={`/auth/signup`} className="text-[#795548]">Sign up</Link></p>

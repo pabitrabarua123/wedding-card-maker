@@ -32,9 +32,9 @@ export default function CheckEmailPage() {
               <p className="text-sm text-gray-500 mb-6">
                 The link will expire in 10 minutes.
               </p>
-              <Link href="/auth/signin">
+              <Link href="/templates">
                 <Button variant="outline" className="w-full">
-                  Back to Sign In
+                  See Templates
                 </Button>
               </Link>
             </div>
