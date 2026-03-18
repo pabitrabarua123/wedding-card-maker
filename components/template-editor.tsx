@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card } from "@/components/ui/card"
-import { Download, Share2 } from "lucide-react"
+import { Download, Save } from "lucide-react"
 import { ArrowLeft } from 'lucide-react';
 import { templates } from "./wedding-templates"
 import { PublishDialog } from "./publish-dialog"
@@ -95,39 +95,6 @@ export function TemplateEditor({ templateId, onBack }: TemplateEditorProps) {
     }
   }
 
-  const handlePublish = async () => {
-    const element = document.getElementById("template-canvas")
-    if (!element) return
-
-    setIsExporting(true)
-    try {
-      await waitForImagesToLoad(element)
-      await new Promise((resolve) => setTimeout(resolve, 200))
-
-      const rect = element.getBoundingClientRect()
-
-      const dataUrl = await domtoimage.toPng(element, {
-        quality: 1,
-        width: rect.width * 2,
-        height: rect.height * 2,
-        style: {
-          transform: "scale(2)",
-          transformOrigin: "top left",
-          width: `${rect.width}px`,
-          height: `${rect.height}px`,
-        },
-      })
-
-      setExportedImage(dataUrl)
-      setShowPublishDialog(true)
-    } catch (error) {
-      console.error("Publish failed:", error)
-      alert("Failed to prepare image for publishing. Please try again.")
-    } finally {
-      setIsExporting(false)
-    }
-  }
-
   return (
     <div className="flex h-screen bg-background">
       {/* Sidebar with form fields */}
@@ -177,11 +144,11 @@ export function TemplateEditor({ templateId, onBack }: TemplateEditorProps) {
         <div className="h-16 py-4 border-b border-border bg-card flex items-center justify-end px-6 gap-2">
           <Button variant="outline" size="sm" onClick={handleExport} disabled={isExporting}>
             <Download className="w-4 h-4 mr-2" />
-            {isExporting ? "Exporting..." : "Download"}
+            {isExporting ? "Preparing..." : "Download"}
           </Button>
-          <Button size="sm" onClick={handlePublish} disabled={isExporting}>
-            <Share2 className="w-4 h-4 mr-2" />
-            {isExporting ? "Preparing..." : "Publish"}
+          <Button variant="outline" size="sm" onClick={handleExport} disabled={isExporting}>
+            <Save className="w-4 h-4 mr-2" />
+            {isExporting ? "Saving..." : "Save"}
           </Button>
         </div>
 

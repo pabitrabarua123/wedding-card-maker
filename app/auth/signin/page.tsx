@@ -5,17 +5,27 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 
 export default function SignInPage() {
   const [email, setEmail] = useState<string>("");
   const [submit_form, setSubmitForm] = useState(false);
+  const searchParams = useSearchParams();
+  const referrer_template = searchParams.get("referrer_template") || undefined;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitForm(true);
-
+    let callbackUrl = "/";
+    //console.log("Referrer Template:", referrer_template);
+    if (referrer_template) {
+      callbackUrl = `/editor?template=${referrer_template}`;
+    }else {
+      callbackUrl = "/templates";
+    }
     await signIn("email", {
       email,
-      callbackUrl: "/dashboard",
+      callbackUrl: callbackUrl,
     });
   };
 

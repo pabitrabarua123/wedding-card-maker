@@ -6,11 +6,13 @@ import Image from "next/image"
 import { ArrowLeft, Sparkles, Star, Check } from "lucide-react"
 import { templates } from "@/components/wedding-templates"
 import { Button } from "@/components/ui/button"
+import { useSession, signOut } from "next-auth/react"
 
 type Category = "All" | "Hindu" | "Muslim" | "Christian"
 
 export default function TemplatesPage() {
-  const [selectedCategory, setSelectedCategory] = useState<Category>("All")
+  const [selectedCategory, setSelectedCategory] = useState<Category>("All");
+  const { data: session } = useSession();
 
   const filteredTemplates =
     selectedCategory === "All" ? templates : templates.filter((template) => template.category === selectedCategory)
@@ -105,7 +107,7 @@ export default function TemplatesPage() {
           {filteredTemplates.map((template) => (
             <Link
               key={template.id}
-              href={`/editor?template=${template.id}`}
+              href={ session?.user?.email? `/editor?template=${template.id}` : `/auth/signin?referrer_template=${template.id}`}
               className="group relative overflow-hidden rounded-2xl bg-white shadow-md transition-all hover:shadow-xl"
             >
               <div className="aspect-[3/4] overflow-hidden">

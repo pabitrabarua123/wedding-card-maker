@@ -19,8 +19,6 @@ import {
   Send,
 } from "lucide-react"
 import { useSession, signOut } from "next-auth/react"
-import { se } from "date-fns/locale"
-
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -354,7 +352,7 @@ export default function Home() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
-                    <Link href={ session?.user?.email? `/editor?template=${template.id}` : `/auth/signin`} >
+                    <Link href={ session?.user?.email? `/editor?template=${template.id}` : `/auth/signin?referrer_template=${template.id}`} >
                       <Button className="bg-[#D4AF37] hover:bg-[#B8941F] text-white rounded-full">Edit Template</Button>
                     </Link>
                   </div>
