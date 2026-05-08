@@ -50,7 +50,7 @@ BREVO_SMTP_PASS=""
 EMAIL_FROM=""
 NODE_ENV="development"
 
-5. Start the development server:
+5. Start the development server with below command:
    ```sh
    npm run dev
    ```
