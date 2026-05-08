@@ -9,12 +9,23 @@ A modern web application for creating, editing, and publishing beautiful wedding
 - Template selection and publishing
 - Responsive design
 
-## Getting Started
+## Project Structure
+- `app/` — Next.js app directory (routes, pages, API)
+- `components/` — Reusable React components
+- `hooks/` — Custom React hooks
+- `lib/` — Utility libraries and services
+- `prisma/` — Prisma schema and migrations
+- `public/` — Static assets
+- `styles/` — Global styles
 
-### Prerequisites
-- Node.js (v18 or higher recommended)
-- pnpm (or npm/yarn)
-- PostgreSQL (for Prisma database)
+## Technologies Used
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Prisma ORM](https://www.prisma.io/)
+- [NextAuth.js](https://next-auth.js.org/)
+
+## Getting Started
 
 ### Installation
 1. Clone the repository:
@@ -40,21 +51,7 @@ A modern web application for creating, editing, and publishing beautiful wedding
    ```
    The app will be available at [http://localhost:3000](http://localhost:3000).
 
-## Project Structure
-- `app/` — Next.js app directory (routes, pages, API)
-- `components/` — Reusable React components
-- `hooks/` — Custom React hooks
-- `lib/` — Utility libraries and services
-- `prisma/` — Prisma schema and migrations
-- `public/` — Static assets
-- `styles/` — Global styles
 
-## Technologies Used
-- [Next.js](https://nextjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Prisma ORM](https://www.prisma.io/)
-- [NextAuth.js](https://next-auth.js.org/)
 
 ## License
 
