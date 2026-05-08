@@ -35,23 +35,26 @@ A modern web application for creating, editing, and publishing beautiful wedding
    ```
 2. Install dependencies:
    ```sh
-   pnpm install
-   # or
    npm install
    ```
 3. Set up environment variables:
-   - Copy `.env.example` to `.env` and fill in the required values.
-4. Run database migrations:
-   ```sh
-   pnpm prisma migrate dev
-   ```
+   - `.env` and fill in the required values.
+   
+DATABASE_URL=""
+DIRECT_URL=""
+NEXTAUTH_URL=""
+NEXTAUTH_SECRET=""
+BREVO_SMTP_HOST=""
+BREVO_SMTP_USER=""
+BREVO_SMTP_PASS=""
+EMAIL_FROM=""
+NODE_ENV="development"
+
 5. Start the development server:
    ```sh
-   pnpm dev
+   npm run dev
    ```
    The app will be available at [http://localhost:3000](http://localhost:3000).
-
-
 
 ## License
 
