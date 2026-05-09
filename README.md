@@ -38,26 +38,25 @@ A modern web application for creating, editing, and publishing beautiful wedding
    npm install
    ```
 3. Create a `.env` file in the root directory and add the following environment variables.
-   
-```env   
-DATABASE_URL=your_postgresql_db_url
+   ```env   
+   DATABASE_URL=your_postgresql_db_url
 
-DIRECT_URL=your_postgresql_direct_url
+   DIRECT_URL=your_postgresql_direct_url
 
-NEXTAUTH_URL=llocalhost:3000
+   NEXTAUTH_URL=llocalhost:3000
 
-NEXTAUTH_SECRET=longstring
+   NEXTAUTH_SECRET=longstring
 
-BREVO_SMTP_HOST=brevo_smtp_host
+   BREVO_SMTP_HOST=brevo_smtp_host
 
-BREVO_SMTP_USER=brevo_smtp_user
+   BREVO_SMTP_USER=brevo_smtp_user
 
-BREVO_SMTP_PASS=brevo_smtp_pass
+   BREVO_SMTP_PASS=brevo_smtp_pass
 
-EMAIL_FROM=examnple.com
+   EMAIL_FROM=examnple.com
 
-NODE_ENV=development
-```
+   NODE_ENV=development
+   ```
 
 5. Start the development server with below command:
    ```sh
