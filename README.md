@@ -37,8 +37,8 @@ A modern web application for creating, editing, and publishing beautiful wedding
    ```sh
    npm install
    ```
-3. Set up environment variables:
-   - `.env` file in the root directory and add the following:
+3. Create a `.env` file in the root directory and add the following environment variables.
+   
 ```env   
 DATABASE_URL=your_postgresql_db_url
 
